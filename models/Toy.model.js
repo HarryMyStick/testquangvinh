@@ -2,18 +2,37 @@ const mongoose = require('mongoose');
 var validator = require("email-validator");
 
 var toySchema = new mongoose.Schema({
-    fullName: {
+    name: {
+        type: String,
+        required: 'This field is required'
+    },
+    price: {
+        type: String,
+        required: 'This field is required'
+    },
+    amount: {
+        type: String,
+        required: 'This field is required'
+    },
+    provider: {
+        type: String,
+        required: 'This field is required'
+    },
+    country: {
         type: String,
         required: 'This field is required'
     },
     email: {
-        type: String
+        type: String,
+        required: 'This field is required'
     },
-    mobile: {
-        type: String
+    phone: {
+        type: String,
+        required: 'This field is required'
     },
     city: {
-        type: String
+        type: String,
+        required: 'This field is required'
     }
 })
 

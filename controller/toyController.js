@@ -20,10 +20,14 @@ router.post("/", (req, res) => {
 
 function insertRecord(req, res) {
     var toy = new Toy();
-    toy.fullName = req.body.fullName;
+    toy.name = req.body.name;
+    toy.price = req.body.price;
+    toy.amount = req.body.amount;
+    toy.provider = req.body.provider;
+    toy.country = req.body.country;
     toy.email = req.body.email;
+    toy.phone = req.body.phone;
     toy.city = req.body.city;
-    toy.mobile = req.body.mobile;
 
     toy.save((err, doc) => {
         if (!err) {
@@ -97,14 +101,30 @@ router.get('/delete/:id', (req, res) => {
 function handleValidationError(err, body) {
     for (field in err.errors) {
         switch (err.errors[field].path) {
-            case 'fullName':
-                body['fullNameError'] = err.errors[field].message;
+            case 'name':
+                body['nameError'] = err.errors[field].message;
                 break;
-
+            case 'price':
+                body['priceError'] = err.errors[field].message;
+                break;
+            case 'amount':
+                body['priceError'] = err.errors[field].message;
+                break;
+            case 'provider':
+                body['providerError'] = err.errors[field].message;
+                break;
+            case 'country':
+                body['countryError'] = err.errors[field].message;
+                break;
             case 'email':
                 body['emailError'] = err.errors[field].message;
                 break;
-
+            case 'phone':
+                body['phoneError'] = err.errors[field].message;
+                break;
+            case 'city':
+                body['cityError'] = err.errors[field].message;
+                break;
             default:
                 break;
         }

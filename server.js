@@ -13,6 +13,7 @@ app.use(bodyParser.urlencoded({
 
 app.use(bodyParser.json());
 app.set('views', path.join(__dirname, '/views/'))
+app.use(express.static(__dirname + '/public'));
 
 app.engine('hbs', expressHandlebars({
     extname: 'hbs',
